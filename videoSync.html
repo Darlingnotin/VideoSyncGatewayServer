@@ -92,13 +92,11 @@
     function openWebSocket() {
       ws = new WebSocket(wsUrl);
       ws.onopen = function () {
-        console.log("Web Socket Onopen");
       }
       ws.onmessage = function (evt) {
         websocketMessageReceived(evt.data);
       }
       ws.onclose = function () {
-        console.log("Web Socket Close");
         setTimeout(() => {
           openWebSocket();
         }, 1000);
@@ -113,7 +111,6 @@
           myTimeStamp: myTimeStamp
         };
         ws.send(JSON.stringify(readyEvent));
-        console.log(JSON.stringify(readyEvent));
       }
     }
 
@@ -130,7 +127,6 @@
           firstTime = false;
         }
       } else if (messageData.action == 'sync' && messageData.myTimeStamp == myTimeStamp) {
-        console.log(JSON.stringify(messageData));
         if (firstTime) {
           document.getElementById('video').src = messageData.videoUrl;
           document.getElementById('video').currentTime = messageData.timeStamp;
