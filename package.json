@@ -1,0 +1,16 @@
+{
+  "name": "video_sync_gateway_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "VideoSyncGatewayServer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Darling",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "os": "^0.1.1",
+    "ws": "^7.3.1"
+  }
+}
