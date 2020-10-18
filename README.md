@@ -4,4 +4,6 @@ It allows you to bridge your video sync in game with people outside. So people c
 
 Installation
 ---
+* git clone https://github.com/Darlingnotin/VideoSyncGatewayServer.git 
+* npm install
 
