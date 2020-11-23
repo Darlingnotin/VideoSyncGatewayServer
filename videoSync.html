@@ -66,12 +66,16 @@
   <script>
 
     var firstTime = true;
-    var myTimeStamp = Date.now();
+    var myTimeStamp = "{" + s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4() + "}"
     var HasBeenClicked = false;
     var videoLoaded = false;
     var wsUrl;
     var ws;
 
+    function s4() {
+      return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    }
+    
     function prepareWebsocketUrl() {
       var currURL;
       Url = window.open(currURL, "_self").location.hostname;
@@ -95,11 +99,13 @@
     function openWebSocket() {
       ws = new WebSocket(wsUrl);
       ws.onopen = function () {
+        console.log("WS Open");
       }
       ws.onmessage = function (evt) {
         websocketMessageReceived(evt.data);
       }
       ws.onclose = function () {
+        console.log("WS Close");
         setTimeout(() => {
           openWebSocket();
         }, 1000);
