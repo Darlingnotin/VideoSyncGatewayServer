@@ -75,7 +75,7 @@
     function s4() {
       return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
     }
-    
+
     function prepareWebsocketUrl() {
       var currURL;
       Url = window.open(currURL, "_self").location.hostname;
@@ -106,7 +106,7 @@
       }
       ws.onclose = function () {
         console.log("WS Close");
-        setTimeout(() => {
+        setTimeout(function () {
           openWebSocket();
         }, 1000);
       }
